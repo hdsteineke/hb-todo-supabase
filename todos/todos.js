@@ -42,18 +42,23 @@ async function displayTodos() {
     
     // display the list of todos
     for (let todo of todos) {
-        const todoItemEl = document.createElement('p');
+        const todoEl = renderTodo(todo);
 
-        //todoItemEl.classList.add('')
-        todoItemEl.textContent = `${todo.todo}`;
+        if (todo.complete === false) {
+            todoEl.addEventListener('click', async () => {
+                await completeTodo(todo.id);
+                displayTodos();
+            });
         
-        todosEl.append(todoItemEl);
+            
+            // be sure to give each todo an event listener
+            
+            // on click, complete that todo
+        }
+        todosEl.append(todoEl);
     }
-
-    // be sure to give each todo an event listener
-
-    // on click, complete that todo
 }
+
 
 // add an on load listener that fetches and displays todos on load
 
@@ -62,8 +67,8 @@ logoutButton.addEventListener('click', () => {
 });
 
 
-deleteButton.addEventListener('click', async() => {
-    // delete all todos
+// deleteButton.addEventListener('click', async() => {
+//     // delete all todos
 
-    // then refetch and display the updated list of todos
-});
+//     // then refetch and display the updated list of todos
+// });
