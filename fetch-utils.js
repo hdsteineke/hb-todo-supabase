@@ -28,7 +28,7 @@ export async function getTodos() {
     // get all todos for this user from supabase
     const response = await client
         .from('todos')
-        .select('*')
+        .select('*');
 
     return checkError(response);
 }

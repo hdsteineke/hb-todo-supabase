@@ -44,14 +44,13 @@ async function displayTodos() {
     for (let todo of todos) {
         const todoEl = renderTodo(todo);
 
+        // be sure to give each todo an event listener
         if (todo.complete === false) {
             todoEl.addEventListener('click', async () => {
                 await completeTodo(todo.id);
                 displayTodos();
             });
         
-            
-            // be sure to give each todo an event listener
             
             // on click, complete that todo
         }
@@ -61,14 +60,18 @@ async function displayTodos() {
 
 
 // add an on load listener that fetches and displays todos on load
+window.addEventListener('load', () => {
+    displayTodos();
+});
+
 
 logoutButton.addEventListener('click', () => {
     logout();
 });
 
 
-// deleteButton.addEventListener('click', async() => {
-//     // delete all todos
+deleteButton.addEventListener('click', async() => {
+    // delete all todos
 
-//     // then refetch and display the updated list of todos
-// });
+    // then refetch and display the updated list of todos
+});
