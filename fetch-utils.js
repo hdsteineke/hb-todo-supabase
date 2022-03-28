@@ -14,12 +14,15 @@ export async function createTodo(todo) {
 }
 
 //****Did I do this right, or do I need to change id? 
-export async function deleteAllTodos(id) {
+export async function deleteAllTodos() {
     // delete all todos for this user in supabase
     const response = await client
         .from('todos')
         .delete()
-        .match({ id });
+        .match({ 
+            user_id: client.auth.user().id 
+        });
+
 
     return checkError(response);
 }
