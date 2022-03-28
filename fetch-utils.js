@@ -13,6 +13,7 @@ export async function createTodo(todo) {
     return checkError(response);
 }
 
+//****Did I do this right, or do I need to change id? 
 export async function deleteAllTodos(id) {
     // delete all todos for this user in supabase
     const response = await client
@@ -52,13 +53,13 @@ export function checkAuth() {
     if (!user) location.replace('../');
 }
 
-export function redirectIfLoggedIn() {
+export async function redirectIfLoggedIn() {
     if (await getUser()) {
         location.replace('./todos');
     }
 }
 
-export function signupUser(email, password) {
+export async function signupUser(email, password) {
     const response = await client.auth.signUp({ email, password });
 
     return response.user;
