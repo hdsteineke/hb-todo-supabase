@@ -84,7 +84,7 @@ footer {
     box-shadow: var(--shadow);
 }
 
-@keyframes pulse {
+/* @keyframes pulse {
     20% {
         transform: rotate3d(-10, -10, -10, 50deg) scale(1.2);
     }
@@ -100,7 +100,26 @@ footer {
     80% {
         transform: rotate3d(10, 10, 10, 50deg) scale(1);
     }
-}
+} */
+
+
+
+@keyframes anim-flipX {
+    0% {
+      opacity: 0;
+      transform: rotateX(90def);
+    }
+    50% {
+      opacity: 1;
+      transform: rotateX(720deg);
+    }
+    100% {
+
+      opacity: 1;
+      transform: rotateX(720deg);
+    }
+  } 
+
 
 #logout {
     position: fixed;
@@ -126,6 +145,7 @@ footer {
     margin: 10px;
 }
 
+
 .loading-spinner {
     background-color: rgba(0,0,0,0.85);
     font-size: 5rem;
@@ -142,6 +162,10 @@ footer {
     display: none;
 }
 
-#loading-msg {
+/* #loading-msg {
     animation: pulse 1s infinite ease-in-out;
+} */
+
+#loading-msg {
+    animation: 1s anim-flipX ease infinite;
 }
